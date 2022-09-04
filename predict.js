@@ -1,3 +1,9 @@
+// TODO:
+// add restart button
+// add descriptions for results
+// add more questions
+// adjust answer weights 
+
 //multiple choice, weights-> answer probability
 const serMultQuestions = [
     {
