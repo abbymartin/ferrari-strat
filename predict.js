@@ -214,11 +214,9 @@ function displayResult() {
 
 function advanceQuestion(choiceNum) {
     //adjust weights
-    if(curQuestion < 3) {
-        if(questions[curQuestion].weights !== 0) {
-            for(let i = 0; i < answerWeights.length; i++) {
-                answerWeights[i] *= questions[curQuestion].weights[choiceNum][i];
-            }
+    if(curQuestion < 3 && questions[curQuestion].weights !== 0) {
+        for(let i = 0; i < answerWeights.length; i++) {
+            answerWeights[i] *= questions[curQuestion].weights[choiceNum][i];
         }
     }
 
