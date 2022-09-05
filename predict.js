@@ -88,7 +88,7 @@ const sillyQuestions = [
         'q': 'Choose a number from 1 to 10'
     }, 
     {
-        'q': 'What is your favorite color'
+        'q': 'What is your favorite color?'
     }, 
     {
         'q': 'How did you feel during quali?'
@@ -105,20 +105,62 @@ const sillyQuestions = [
 ];
 
 const results = [
-    'Pit for soft tires',
-    'Pit for hard tires',
-    'Pit for intermediate tires',
-    'Pit for full wet tires',
-    'One stop race',
-    'Five stop race',
-    'Team orders time!!!',
-    'Play in the gravel',
-    'Use the wrong tires',
-    'Retire from the race',
-    'Pit stop (just for fun!)',
-    'Tell the pit crew they can go home',
-    'Let Mattia drive',
-    'EAT THE TIRES'
+    {
+        'title': 'Pit for soft tires',
+        'desc': 'Squishy!'
+    },
+    {
+        'title': 'Pit for hard tires',
+        'desc': 'Honestly the only option'
+    },
+    {
+        'title': 'Pit for intermediate tires',
+        'desc': 'It might rain soon, better safe than sorry.'
+    },
+    {
+        'title': 'Pit for full wet tires',
+        'desc': 'Who cares if the track is wet or not.'
+    },
+    {
+        'title': 'One stop race',
+        'desc': '(but make it a 30 second stop)'
+    },
+    {
+        'title': 'Five stop race',
+        'desc': 'Maybe six if you feel like it'
+    },
+    {
+        'title': 'Team orders time!!!',
+        'desc': 'The drivers will be so happy'
+    },
+    {
+        'title': 'Play in the gravel',
+        'desc': 'The other drivers might join in :)'
+    },
+    {
+        'title': 'Use the wrong tires',
+        'desc': 'The driver will never see it coming.'
+    },
+    {
+        'title': 'Retire from the race',
+        'desc': 'What\'s the point anymore.'
+    },
+    {
+        'title': 'Pit stop (just for fun!)',
+        'desc': 'Your driver probably misses the pit crew.'
+    },
+    {
+        'title': 'Tell the pit crew they can go home',
+        'desc': 'A few lucky paddock club members can replace them!'
+    },
+    {
+        'title': 'Let Mattia drive',
+        'desc': 'He\'s just as qualified, if not more.'
+    },
+    {
+        'title': 'EAT THE TIRES',
+        'desc': 'chomp chomp chomp'
+    }
 ];
 
 let questions = []
@@ -210,12 +252,28 @@ function displayResult() {
     //clear questions
     const qBox = document.getElementById('questions');
     const aBox = document.getElementById('answer');
+    let resultIndex = calculateResult();
 
     qBox.innerHTML = ''; //clear questions
 
-    let resultText = document.createElement("p");
-    resultText.innerText = results[calculateResult()];
+    let heading = document.createElement('h2');
+    heading.innerText = 'Race Strategy:';
+    aBox.appendChild(heading);
+
+    let resultTitle = document.createElement('h3');
+    resultTitle.innerText = results[resultIndex].title;
+    aBox.appendChild(resultTitle);
+
+    let resultText = document.createElement('p');
+    resultText.innerText = results[resultIndex].desc;
     aBox.appendChild(resultText);
+
+    let restartButton = document.createElement('button');
+    restartButton.innerText = 'Start Over';
+    restartButton.onclick = function() {
+        location.reload();
+    }
+    aBox.appendChild(restartButton);
 }
 
 function advanceQuestion(choiceNum) {
