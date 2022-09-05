@@ -163,6 +163,20 @@ const results = [
     }
 ];
 
+const images = [
+    "https://i2-prod.mirror.co.uk/incoming/article27563721.ece/ALTERNATES/s1200c/0_0gboz6dn0jd91.jpg", 
+    "https://preview.redd.it/i06t82nmg6591.jpg?auto=webp&s=37ba8f54501baef14212513ef1e97d2a4efd427e",
+    "https://pbs.twimg.com/media/FVDK2TzWUAA-hRb?format=jpg&name=900x900",
+    "https://www.f1world.it/news/wp-content/uploads/2022/07/Sainz-Ritiro-Austria.jpg",
+    "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2022/07/27144209/ferrari-charles-leclerc-french-grand-prix-planet-f12.jpg",
+    "https://external-preview.redd.it/Z9nQSJsfvQSS9ICFLynaBwR0HOhnNrGQ_pfb0aX2uPo.png?width=640&crop=smart&format=pjpg&auto=webp&s=13f765ab78afa2e985dc340936a436e2051c6cac",
+    "https://www.sportsnet.ca/wp-content/uploads/2022/07/ferrari1280.jpg",
+    "https://pbs.twimg.com/media/FRHxdWoXwAIa8XL.jpg",
+    "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2022/07/11132415/ferrari-carlos-sainz-engine-failure-planet-f1.jpg",
+    "https://preview.redd.it/xy17hv4a3ra91.jpg?width=640&crop=smart&auto=webp&s=e1b68696ace371f0fc967d2d697a71aba0c2c1e1",
+    "https://tellmysport.com/wp-content/uploads/2020/07/csportfotoskysports-vettel-leclerc-f1_5038361.jpg"
+];
+
 let questions = []
 let answerWeights = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 let curQuestion = 0;
@@ -252,6 +266,7 @@ function displayResult() {
     //clear questions
     const qBox = document.getElementById('questions');
     const aBox = document.getElementById('answer');
+    const iBox = document.getElementById('image')
     let resultIndex = calculateResult();
 
     qBox.innerHTML = ''; //clear questions
@@ -267,6 +282,11 @@ function displayResult() {
     let resultText = document.createElement('p');
     resultText.innerText = results[resultIndex].desc;
     aBox.appendChild(resultText);
+
+    let resultImage = document.createElement("img");
+    resultImage.setAttribute("src", images[Math.floor((Math.random())*images.length)]);
+    resultImage.classList.add("image")
+    iBox.appendChild(resultImage);
 
     let restartButton = document.createElement('button');
     restartButton.innerText = 'Start Over';
