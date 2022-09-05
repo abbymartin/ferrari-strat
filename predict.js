@@ -190,9 +190,8 @@ function chooseRandQuestions(amount, arr) {
             chosen.push(arr[rand]);
         }
     }
-
     return(chosen);
-}
+};
 
 //choose 3 serious (2 mult, 1 blank) + 2 silly
 function questionSelection() {
@@ -206,7 +205,7 @@ function questionSelection() {
 
     //show first question
     displayQuestion();
-}
+};
 
 //title and options
 function displayQuestion() {
@@ -241,7 +240,7 @@ function displayQuestion() {
         }
         options.appendChild(answer.appendChild(button));
     }
-}
+};
 
 function calculateResult() {
     //choose result (weighted random)
@@ -260,7 +259,7 @@ function calculateResult() {
         }
     }
     return(calcWeights.length-1);
-}
+};
 
 function displayResult() {
     //clear questions
@@ -294,7 +293,7 @@ function displayResult() {
         location.reload();
     }
     aBox.appendChild(restartButton);
-}
+};
 
 function advanceQuestion(choiceNum) {
     //adjust weights
@@ -313,6 +312,6 @@ function advanceQuestion(choiceNum) {
         curQuestion++;
         displayQuestion(curQuestion);
     }
-}
+};
 
 questionSelection();
