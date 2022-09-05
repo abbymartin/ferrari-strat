@@ -59,7 +59,6 @@ input{
     font-size: 20px;
     color:rgb(255, 242, 0);
 }
-
 @media only screen and (max-width: 600px){
     h1{
         font-size: 2em;
@@ -80,5 +79,4 @@ input{
         max-width: 75%;
         max-height: 75%;
     }
-
 }
